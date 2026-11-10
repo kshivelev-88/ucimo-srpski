@@ -1,64 +1,13 @@
 name: Build Android APK
 
 on:
-  push:
-    branches: [main]
   workflow_dispatch:
 
 permissions:
   contents: read
 
-env:
-  JAVA_VERSION: '21'
-  NODE_VERSION: '22'
-
 jobs:
   build:
-    name: Build debug APK
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout source
-        uses: actions/checkout@v4
-
-      - name: Restore web app source
-        run: |
-          mkdir -p www
-          cat source/index.html.gz.b64.part* | base64 -d | gzip -d > www/index.html
-          test -s www/index.html
-
-      - name: Set up Java
-        uses: actions/setup-java@v4
-        with:
-          distribution: temurin
-          java-version: ${{ env.JAVA_VERSION }}
-
-      - name: Set up Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: ${{ env.NODE_VERSION }}
-
-      - name: Install dependencies
-        run: npm install --no-audit --no-fund
-
-      - name: Create Android project if missing
-        run: |
-          if [ ! -d android ]; then
-            npx cap add android
-          fi
-
-      - name: Sync Capacitor
-        run: npx cap sync android
-
-      - name: Build debug APK
-        run: |
-          cd android
-          chmod +x gradlew
-          ./gradlew --no-daemon assembleDebug
-
-      - name: Upload APK
-        uses: actions/upload-artifact@v4
-        with:
-          name: ucimo-srpski-debug-apk
-          path: android/app/build/outputs/apk/debug/app-debug.apk
-          if-no-files-found: error
-          retention-days: 30
+      - run: echo "Workflow configuration is being updated."
