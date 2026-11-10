@@ -1,17 +1,20 @@
 {
   "name": "ucimo-srpski",
-  "version": "2.1.0",
+  "version": "2.2.0",
   "private": true,
   "description": "Serbian language learning app for Russian speakers",
   "scripts": {
-    "build": "node -e \"const fs=require('fs'); if(!fs.existsSync('www/index.html')) process.exit(1); console.log('Web app ready')\"",
+    "build": "node scripts/patch-html.mjs && esbuild src/native-audio.js --bundle --platform=browser --format=iife --target=es2020 --outfile=www/native-audio.js",
     "cap:sync": "cap sync android"
   },
   "dependencies": {
     "@capacitor/android": "^7.4.3",
-    "@capacitor/core": "^7.4.3"
+    "@capacitor/core": "^7.4.3",
+    "@capacitor-community/text-to-speech": "^6.1.0",
+    "@capacitor-community/speech-recognition": "^7.0.1"
   },
   "devDependencies": {
-    "@capacitor/cli": "^7.4.3"
+    "@capacitor/cli": "^7.4.3",
+    "esbuild": "^0.25.0"
   }
 }
