@@ -1,0 +1,17 @@
+{
+  "name": "ucimo-srpski",
+  "version": "2.1.0",
+  "private": true,
+  "description": "Serbian language learning app for Russian speakers",
+  "scripts": {
+    "build": "node -e \"const fs=require('fs'); if(!fs.existsSync('www/index.html')) process.exit(1); console.log('Web app ready')\"",
+    "cap:sync": "cap sync android"
+  },
+  "dependencies": {
+    "@capacitor/android": "^7.4.3",
+    "@capacitor/core": "^7.4.3"
+  },
+  "devDependencies": {
+    "@capacitor/cli": "^7.4.3"
+  }
+}
