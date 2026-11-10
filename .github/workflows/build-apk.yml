@@ -20,6 +20,12 @@ jobs:
       - name: Checkout source
         uses: actions/checkout@v4
 
+      - name: Restore web app source
+        run: |
+          mkdir -p www
+          cat source/index.html.gz.b64.part* | base64 -d | gzip -d > www/index.html
+          test -s www/index.html
+
       - name: Set up Java
         uses: actions/setup-java@v4
         with:
