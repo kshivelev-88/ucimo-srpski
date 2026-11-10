@@ -30,20 +30,21 @@ for density, size in adaptive_sizes.items():
 
 adaptive = android_res / 'mipmap-anydpi-v26'
 adaptive.mkdir(parents=True, exist_ok=True)
-xml = '''<?xml version="1.0" encoding="utf-8"?>
+adaptive_xml = '''<?xml version="1.0" encoding="utf-8"?>
 <adaptive-icon xmlns:android="http://schemas.android.com/apk/res/android">
     <background android:drawable="@color/ucimo_icon_background" />
     <foreground android:drawable="@mipmap/ic_launcher_foreground" />
 </adaptive-icon>
 '''
-(adaptive / 'ic_launcher.xml').write_text(xml, encoding='utf-8')
-(adaptive / 'ic_launcher_round.xml').write_text(xml, encoding='utf-8')
+(adaptive / 'ic_launcher.xml').write_text(adaptive_xml, encoding='utf-8')
+(adaptive / 'ic_launcher_round.xml').write_text(adaptive_xml, encoding='utf-8')
 
 values = android_res / 'values'
 values.mkdir(parents=True, exist_ok=True)
-(values / 'ucimo_icon_background.xml').write_text(
-    '<?xml version="1.0" encoding="utf-8"?>\\n'
-    '<resources><color name="ucimo_icon_background">#0B2D68</color></resources>\\n',
-    encoding='utf-8'
-)
+background_xml = '''<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="ucimo_icon_background">#0B2D68</color>
+</resources>
+'''
+(values / 'ucimo_icon_background.xml').write_text(background_xml, encoding='utf-8')
 print('Generated Učimo srpski launcher icons for all Android densities.')
