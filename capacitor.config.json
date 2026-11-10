@@ -1,0 +1,8 @@
+{
+  "appId": "com.ucimosrpski.app",
+  "appName": "Učimo srpski",
+  "webDir": "www",
+  "server": {
+    "androidScheme": "https"
+  }
+}
