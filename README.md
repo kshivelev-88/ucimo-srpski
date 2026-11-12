@@ -1,6 +1,14 @@
 # Učimo srpski
 
-Android test app for Russian speakers learning Serbian.
+Android language-learning app for Russian speakers learning Serbian.
+
+## Current course build
+
+- 45 learning modules across A1 (6), A2 (15), B1 (12), and B2 (12).
+- Every module includes grammar and practice plus two interactive conversations and two comic stories.
+- The interface uses a playful, gamified design with XP, learning streaks, achievements, progress indicators, and the approved app icon.
+- All four levels are currently open for review. Level transitions do not require exams; exams remain in the code but are temporarily hidden from the interface.
+- Russian explanatory speech is kept separate from Serbian examples; Serbian sentences and dialogues are spoken using the Serbian voice.
 
 ## Android build
 
@@ -17,6 +25,6 @@ GitHub Actions builds a debug APK on pushes to `main` and by manual dispatch. Th
 
 The Android launcher icon is generated from the selected Učimo srpski app icon in `assets/ucimo-srpski-icon.jpg`.
 
-## Current learning content
+## Build source
 
-A1 and A2 lesson content is included. B1 and B2 remain curriculum roadmaps; their full lesson banks and exams are still to be authored.
+`source/v5/index.html` is the canonical course HTML. The Android build injects the native audio bridge during the build and bundles `src/native-audio.js`.

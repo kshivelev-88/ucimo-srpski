@@ -23,7 +23,7 @@ jobs:
       - name: Restore app source and approved icon
         run: |
           mkdir -p www assets
-          cat source/index.html.gz.b64.part* | base64 -d | gzip -d > www/index.html
+          cp source/v5/index.html www/index.html
           test -s www/index.html
           cat assets/ucimo-srpski-icon.jpg.b64.part* | base64 -d > assets/ucimo-srpski-icon.jpg
           test -s assets/ucimo-srpski-icon.jpg

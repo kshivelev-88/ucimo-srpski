@@ -1,8 +1,8 @@
 {
   "name": "ucimo-srpski",
-  "version": "2.2.0",
+  "version": "2.3.0",
   "private": true,
-  "description": "Serbian language learning app for Russian speakers",
+  "description": "Gamified Serbian language learning app for Russian speakers",
   "scripts": {
     "build": "node scripts/patch-html.mjs && esbuild src/native-audio.js --bundle --platform=browser --format=iife --target=es2020 --outfile=www/native-audio.js",
     "cap:sync": "cap sync android"
