@@ -152,6 +152,35 @@ button:focus-visible,input:focus-visible{outline:3px solid #ff9a76;outline-offse
 @media(max-width:520px){.w{padding:10px 12px 40px}.hero-game{padding:17px 16px 15px;border-radius:23px}.hero-mascot{flex-basis:82px;width:82px;height:82px;border-radius:24px;font-size:49px}.hero-copy p{font-size:12px}.module-grid{grid-template-columns:1fr}.lesson-card{padding:12px}.stats{gap:7px}.stat{padding:10px 9px}.stat b{font-size:23px}.practice-library{grid-template-columns:1fr 1fr}.level-heading h2{font-size:21px}}
 @media(min-width:700px){.hero-game{padding:24px 28px}.module-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 
+
+/* Dedicated phonetics screen for the alphabet module */
+.alphabet-page{padding:2px 0 14px}
+.alphabet-intro{background:linear-gradient(135deg,#6758e8,#8d7cf5);color:#fff;border-radius:22px;padding:19px 18px;margin:4px 0 13px;box-shadow:0 9px 22px rgba(76,61,190,.18)}
+.alphabet-intro h2{font:800 24px/1.15 'Baloo 2',Nunito,sans-serif;color:#fff;margin:4px 0 8px}
+.alphabet-intro p{font-size:14px;line-height:1.5;margin:0;color:rgba(255,255,255,.95)}
+.alphabet-kicker{font-size:10px;letter-spacing:1.2px;font-weight:900;color:#ffe18a}
+.alphabet-actions{margin-top:13px}
+.alphabet-actions .btn{background:#fff;color:#4b3fc1;border-color:#fff;box-shadow:0 3px 0 rgba(43,33,126,.16);font-size:14px;padding:10px 12px}
+.alphabet-legend{display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap;color:#77738e;font-size:11px;font-weight:800;margin:12px 2px}
+.alphabet-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}
+.alphabet-card{background:#fff;border:1.5px solid #e8e4f3;border-radius:17px;padding:10px 11px;box-shadow:0 4px 12px rgba(53,44,110,.055);min-width:0}
+.alphabet-card-head{display:flex;align-items:center;gap:7px;min-height:49px}
+.alphabet-index{font-size:9px;font-weight:900;color:#8d88a7;background:#f3f1fa;border-radius:8px;padding:4px 6px}
+.alphabet-glyph{flex:1;text-align:center;font:800 32px/1.1 'Baloo 2',Nunito,sans-serif;color:#393477;letter-spacing:1px;white-space:nowrap}
+.letter-audio{border:0;background:#fff3d4;color:#6550c7;border-radius:10px;width:32px;height:32px;font-size:16px;cursor:pointer}
+.alphabet-main-label{font-size:9px;font-weight:900;color:#685bd5;text-transform:uppercase;letter-spacing:.5px;margin:2px 0 6px}
+.alphabet-pair,.alphabet-pronunciation,.alphabet-approx{display:flex;align-items:baseline;justify-content:space-between;gap:5px;border-top:1px solid #f0edf7;padding-top:5px;margin-top:5px}
+.alphabet-pair span,.alphabet-pronunciation span,.alphabet-approx span{font-size:10px;color:#85819d;font-weight:700}
+.alphabet-pair b{font-size:15px;color:#393477;letter-spacing:.5px}
+.alphabet-pronunciation strong{font:800 17px Nunito,sans-serif;color:#259d7a}
+.alphabet-approx b{font-size:12px;color:#393477;text-align:right}
+.alphabet-name{font-size:10px;color:#77738e;margin-top:6px}
+.alphabet-name b{color:#393477}
+.alphabet-tip{background:#fff6df;border:1px solid #f2e4bd;border-radius:16px;padding:12px 14px;margin:14px 0}
+.alphabet-tip h3{font:800 16px 'Baloo 2',Nunito,sans-serif;color:#5c4b87;margin:0 0 6px}
+.alphabet-tip p{font-size:12px;line-height:1.5;color:#625a79;margin:5px 0}
+@media(max-width:370px){.alphabet-grid{grid-template-columns:1fr}.alphabet-card{padding:12px}.alphabet-glyph{font-size:36px}}
+
 </style>
 </head>
 <body><div class="w">
@@ -161,36 +190,7 @@ button:focus-visible,input:focus-visible{outline:3px solid #ff9a76;outline-offse
 <script>
 // ---------- КОНТЕНТ: строки «сербский|русский|картинка|буква». Новые модули добавляются сюда. ----------
 const U=[
-{id:"a",lv:"A1",t:"Алфавит: 30 букв",n:"Сербский читается так, как пишется: одна буква, один звук. Нет в русском: Ђ (мягкое «дь»), Ћ (мягкое «ть»), Ј (как «й»), Љ («ль»), Њ («нь»), Џ («дж»). Запись кириллицей и латиницей равноправна, переключатель вверху.",w:`ananas|ананас|🍍|А а
-banana|банан|🍌|Б б
-voda|вода|💧|В в
-grožđe|виноград|🍇|Г г
-dinja|дыня|🍈|Д д
-đak|школьник|🎒|Ђ ђ
-ekran|экран|📺|Е е
-žaba|лягушка|🐸|Ж ж
-zec|заяц|🐰|З з
-igra|игра|🎮|И и
-jabuka|яблоко|🍎|Ј ј
-kuća|дом|🏠|К к
-limun|лимон|🍋|Л л
-ljubav|любовь|❤️|Љ љ
-mleko|молоко|🥛|М м
-nos|нос|👃|Н н
-knjiga|книга|📖|Њ њ
-oko|глаз|👁️|О о
-pas|собака|🐕|П п
-riba|рыба|🐟|Р р
-sunce|солнце|☀️|С с
-torta|торт|🍰|Т т
-ćevap|чевапи|🍖|Ћ ћ
-uho|ухо|👂|У у
-fudbal|футбол|⚽|Ф ф
-hleb|хлеб|🍞|Х х
-cvet|цветок|🌸|Ц ц
-čaj|чай|🍵|Ч ч
-džem|джем|🍯|Џ џ
-šuma|лес|🌲|Ш ш`},
+{id:"a",lv:"A1",t:"Сербский алфавит: 30 букв",n:"Сербский читается так, как пишется: одна буква, один звук. Нет в русском: Ђ (мягкое «дь»), Ћ (мягкое «ть»), Ј (как «й»), Љ («ль»), Њ («нь»), Џ («дж»). Запись кириллицей и латиницей равноправна, переключатель вверху.",w:``,
 {id:"b",lv:"A1",t:"Знакомство и вежливость",n:"Я = ja, ты = ti. «Меня зовут…» буквально «я себя зову»: Zovem se… Вопрос часто строится с частицей li: Govoriš li srpski? («Говоришь ли ты…»).",w:`Zdravo|Привет|👋
 Dobar dan|Добрый день|☀️
 Dobro veče|Добрый вечер|🌆
@@ -484,7 +484,7 @@ const ADV_UNITS = [{"id":"b1-01","lv":"B1","t":"Падежи в речи I: ро
 U.push(...ADV_UNITS.map(x=>({...x,w:x.bank.map(p=>p[0] + "|" + p[1]).join("\n")})));
 
 const ROAD=[["A2","Прошедшее и будущее время, падежи (родительный, дательный, творительный), покупки, здоровье, работа, транспорт"],["B1","Все падежи в речи, условные предложения, рассказ о событиях, чтение простых текстов, диалоги по телефону"],["B2","Сложные предложения, мнения и аргументы, новости и подкасты, письмо, идиомы и разговорный язык"]];
-U.forEach(u=>u.items=u.w.split("\n").map(l=>{const p=l.split("|");return{id:u.id+":"+p[0],sr:p[0],ru:p[1],e:p[2]||"",L:p[3]||"",u:u.id,lv:u.lv}}));
+U.forEach(u=>u.items=u.id==="a"?[]:u.w.split("\n").map(l=>{const p=l.split("|");return{id:u.id+":"+p[0],sr:p[0],ru:p[1],e:p[2]||"",L:p[3]||"",u:u.id,lv:u.lv}}));
 const ALL=U.flatMap(u=>u.items);
 const RU_NARRATION={
  a:"В сербском языке слова читаются так, как пишутся: одна буква обычно обозначает один звук. В языке есть несколько звуков, которых нет в русском. Некоторые согласные произносятся мягче привычных русских звуков. Есть звук, похожий на й, а также сочетания, близкие к ль, нь и дж. Сербский язык можно записывать кириллицей и латиницей. Переключатель письменности находится в верхней части экрана.",
@@ -567,7 +567,7 @@ function home(){
   const pct=Math.round(seen/Math.max(ALL.length,1)*100);
   const today=day(),yesterday=new Date(Date.now()-864e5).toISOString().slice(0,10);
   const streak=S.streak.last===today||S.streak.last===yesterday?S.streak.n:0;
-  const nextU=U.find(u=>u.items.some(i=>!S.p[i.id]))||U[0];
+  const nextU=U.find(u=>u.id!=="a"&&u.items.some(i=>!S.p[i.id]))||U.find(u=>u.id!=="a")||U[0];
   const badges=[];
   if(seen>=1)badges.push('<span class="achievement"><b>🌟</b> Первое слово</span>');
   if(seen>=20)badges.push('<span class="achievement"><b>📚</b> 20 слов в копилке</span>');
@@ -610,8 +610,33 @@ function home(){
   if(EXAMS_ENABLED){const e1=$("#exA1"),e2=$("#exA2");if(e1)e1.onclick=()=>startExam("A1");if(e2)e2.onclick=()=>startExam("A2")}
 }
 // ---------- экран модуля ----------
+
+const SERBIAN_ALPHABET = [
+{cU:"А",cL:"а",lU:"A",lL:"a",name:"a",ipa:"a",approx:"а"},{cU:"Б",cL:"б",lU:"B",lL:"b",name:"be",ipa:"b",approx:"б"},{cU:"В",cL:"в",lU:"V",lL:"v",name:"ve",ipa:"ʋ",approx:"в"},{cU:"Г",cL:"г",lU:"G",lL:"g",name:"ge",ipa:"ɡ",approx:"г"},{cU:"Д",cL:"д",lU:"D",lL:"d",name:"de",ipa:"d",approx:"д"},
+{cU:"Ђ",cL:"ђ",lU:"Đ",lL:"đ",name:"đe",ipa:"d͡ʑ",approx:"мягкое «дж»"},{cU:"Е",cL:"е",lU:"E",lL:"e",name:"e",ipa:"e",approx:"э / е"},{cU:"Ж",cL:"ж",lU:"Ž",lL:"ž",name:"že",ipa:"ʒ",approx:"ж"},{cU:"З",cL:"з",lU:"Z",lL:"z",name:"ze",ipa:"z",approx:"з"},{cU:"И",cL:"и",lU:"I",lL:"i",name:"i",ipa:"i",approx:"и"},
+{cU:"Ј",cL:"ј",lU:"J",lL:"j",name:"je",ipa:"j",approx:"й"},{cU:"К",cL:"к",lU:"K",lL:"k",name:"ka",ipa:"k",approx:"к"},{cU:"Л",cL:"л",lU:"L",lL:"l",name:"el",ipa:"l",approx:"л"},{cU:"Љ",cL:"љ",lU:"LJ",lL:"lj",name:"elj",ipa:"ʎ",approx:"мягкое «ль»"},{cU:"М",cL:"м",lU:"M",lL:"m",name:"em",ipa:"m",approx:"м"},
+{cU:"Н",cL:"н",lU:"N",lL:"n",name:"en",ipa:"n",approx:"н"},{cU:"Њ",cL:"њ",lU:"NJ",lL:"nj",name:"enj",ipa:"ɲ",approx:"мягкое «нь»"},{cU:"О",cL:"о",lU:"O",lL:"o",name:"o",ipa:"o",approx:"о"},{cU:"П",cL:"п",lU:"P",lL:"p",name:"pe",ipa:"p",approx:"п"},{cU:"Р",cL:"р",lU:"R",lL:"r",name:"er",ipa:"r",approx:"раскатистое «р»"},
+{cU:"С",cL:"с",lU:"S",lL:"s",name:"es",ipa:"s",approx:"с"},{cU:"Т",cL:"т",lU:"T",lL:"t",name:"te",ipa:"t",approx:"т"},{cU:"Ћ",cL:"ћ",lU:"Ć",lL:"ć",name:"će",ipa:"t͡ɕ",approx:"мягкое «ч»"},{cU:"У",cL:"у",lU:"U",lL:"u",name:"u",ipa:"u",approx:"у"},{cU:"Ф",cL:"ф",lU:"F",lL:"f",name:"ef",ipa:"f",approx:"ф"},
+{cU:"Х",cL:"х",lU:"H",lL:"h",name:"ha",ipa:"x",approx:"х"},{cU:"Ц",cL:"ц",lU:"C",lL:"c",name:"ce",ipa:"t͡s",approx:"ц"},{cU:"Ч",cL:"ч",lU:"Č",lL:"č",name:"če",ipa:"t͡ʃ",approx:"твёрдое «ч»"},{cU:"Џ",cL:"џ",lU:"DŽ",lL:"dž",name:"dže",ipa:"d͡ʒ",approx:"«дж»"},{cU:"Ш",cL:"ш",lU:"Š",lL:"š",name:"eš",ipa:"ʃ",approx:"ш"}
+];
+function alphabetModule(u){
+ const useCyr=S.script==="cyr";
+ const cards=SERBIAN_ALPHABET.map((x,i)=>{
+  const main=useCyr?x.cU+" "+x.cL:x.lU+" "+x.lL;
+  const other=useCyr?x.lU+" "+x.lL:x.cU+" "+x.cL;
+  const mainLabel=useCyr?"Сербская кириллица":"Сербская латиница";
+  const otherLabel=useCyr?"Латиница":"Кириллица";
+  return '<article class="alphabet-card"><div class="alphabet-card-head"><span class="alphabet-index">'+String(i+1).padStart(2,"0")+'</span><span class="alphabet-glyph">'+main+'</span><button class="letter-audio" data-letter-audio="'+i+'" aria-label="Произнести название буквы">🔊</button></div><div class="alphabet-main-label">'+mainLabel+'</div><div class="alphabet-pair"><span>'+otherLabel+'</span><b>'+other+'</b></div><div class="alphabet-pronunciation"><span>Звук (IPA)</span><strong>/'+x.ipa+'/</strong></div><div class="alphabet-approx"><span>Приблизительно по-русски</span><b>'+x.approx+'</b></div><div class="alphabet-name">Название буквы: <b>'+x.name+'</b></div></article>';
+ }).join("");
+ m.innerHTML='<div class="alphabet-page"><div class="alphabet-intro"><div class="alphabet-kicker">A1 · ФОНЕТИКА</div><h2>Сербский алфавит — 30 букв</h2><p>В сербском языке две равноправные системы письма: кириллица и латиница. В карточках показаны заглавная и строчная формы обеих азбук, название буквы и фонетическая транскрипция.</p><div class="alphabet-actions"><button class="btn pri" id="alphabetPlayAll">🔊 Прослушать названия всех букв</button></div></div><div class="alphabet-legend"><span>Заглавная + строчная</span><span>IPA — международная транскрипция</span></div><div class="alphabet-grid">'+cards+'</div><section class="alphabet-tip"><h3>Обрати внимание на похожие звуки</h3><p><b>Č / Ч</b> — более твёрдое «ч», а <b>Ć / Ћ</b> — мягкое «ч».</p><p><b>Dž / Џ</b> — звук «дж», а <b>Đ / Ђ</b> — его мягкий вариант.</p><p><b>Lj / Љ</b> и <b>Nj / Њ</b> — отдельные буквы, хотя в латинице каждая записывается двумя символами.</p></section><div class="row"><button class="btn sm" id="back">Назад</button></div></div>';
+ m.querySelectorAll("[data-letter-audio]").forEach(b=>b.onclick=()=>say("slovo "+SERBIAN_ALPHABET[Number(b.dataset.letterAudio)].name,"sr"));
+ $("#alphabetPlayAll").onclick=()=>sayAll(SERBIAN_ALPHABET.map(x=>x.name),"sr");
+ $("#back").onclick=home;
+}
+
 function unit(id){
   const u=U.find(x=>x.id===id);
+  if(id==="a"){alphabetModule(u);return;}
   const levelLabel={A1:"Начальный уровень",A2:"Элементарный уровень",B1:"Средний уровень",B2:"Выше среднего"}[u.lv]||u.lv;
   const lessonGoals={
     A1:"Познакомиться с базовыми словами и выражениями, понять простые вопросы и ответить короткой фразой.",
@@ -799,6 +824,9 @@ MODULE_PRACTICE.forEach(pack => {
   pack.comics.forEach((c, i) => CM.push({id:`${pack.u}-extra-comic-${i+1}`, t:c.t, units:[pack.u], pn:c.pn}));
 });
 
+// Alphabet module is intentionally phonetics-only: no role-play dialogues or comics.
+for(let i=PR.length-1;i>=0;i--)if(PR[i].u==="a"||(PR[i].units||[]).includes("a"))PR.splice(i,1);
+for(let i=CM.length-1;i>=0;i--)if(CM[i].u==="a"||(CM[i].units||[]).includes("a"))CM.splice(i,1);
 function comic(id){
   const c=CM.find(x=>x.id===id);let tr=false;
   const draw=()=>{let h=`<p class="cap">Комикс. Нажмите на реплику, чтобы услышать её.</p><h2 style="margin-top:0">${c.t}</h2><div class="row" style="margin:0 0 12px"><button class="btn sm" id="bk">Назад</button><button class="btn sm" id="tg">${tr?"Скрыть перевод":"Показать перевод"}</button><button class="btn sm" id="pa">▶ Озвучить</button></div>`;
@@ -854,6 +882,7 @@ function examBlock(lv="A1"){
   return `<h2>Экзамен уровня ${lv}</h2><p class="cap">${count} заданий: словарь, понимание на слух, письмо, конструктор фраз и говорение${lv==="A1"?", диалоги и чтение":""}. Нужно набрать 70%. Для говорения без распознавания речи доступна самооценка. Аудио пока озвучивается синтезатором браузера, а не носителем языка.</p><button class="unit" id="ex${lv}"><b>${a?"✓ ":""}Сдать экзамен ${lv}</b><span>${a?"Сдан: "+a.s+"%. Можно пересдать":"Проверка материала уровня "+lv}</span></button>`;
 }
 function unitBtn(u){
+  if(u.id==="a")return '<button class="unit lesson-card" data-u="a"><span class="module-icon">🔤</span><span class="module-copy"><span class="module-top"><span class="module-tag">A1 · 01</span><span class="module-status">30 букв</span></span><b>Сербский алфавит: 30 букв</b><span class="module-meta">Кириллица · латиница · произношение · IPA</span></span><span class="module-arrow">›</span></button>';
   const N=u.items.length,sn=u.items.filter(i=>S.p[i.id]).length,k=u.items.filter(i=>box(i)>=3).length;
   const idx=U.filter(x=>x.lv===u.lv).indexOf(u);
   const icons={A1:["🔤","👋","🔢","🍓","🧭","🏡"],A2:["🗓️","⏳","🚀","🛋️","🛍️","🩺","🎵","🚆","💼","👨‍👩‍👧","🌤️","🏦","🍽️","🧩","📚"],B1:["🧠","🧭","⚡","🚉","📖","🗣️","🤝","🌦️","📞","🧾","🏦","🎯"],B2:["📊","🕰️","📑","🧩","✍️","💬","⚖️","🗂️","🔎","🧠","📨","💎"]};
