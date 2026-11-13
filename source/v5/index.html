@@ -560,6 +560,7 @@ function sayAll(a,lang="sr"){if(lang==="ru")a=a.map(russianSpeechOnly);try{speec
 function hear(cb){const C=window.SpeechRecognition||window.webkitSpeechRecognition;if(!C)return cb(null);try{const r=new C();r.lang="sr-RS";r.maxAlternatives=3;r.onresult=e=>cb([...e.results[0]].map(a=>a.transcript));r.onerror=()=>cb(undefined);r.onnomatch=()=>cb(undefined);r.start()}catch(e){cb(null)}}
 // ---------- экран «Путь» ----------
 function home(){
+  S.view="home";
   const seen=ALL.filter(i=>S.p[i.id]).length,known=ALL.filter(i=>box(i)>=3).length,dueN=ALL.filter(due).length;
   const dialogDone=Object.keys(S.c).filter(k=>k.startsWith("pr_")).length;
   const comicDone=CM.filter(c=>S.c[c.id]).length;
@@ -620,6 +621,7 @@ const SERBIAN_ALPHABET = [
 {cU:"Х",cL:"х",lU:"H",lL:"h",name:"ha",ipa:"x",approx:"х"},{cU:"Ц",cL:"ц",lU:"C",lL:"c",name:"ce",ipa:"t͡s",approx:"ц"},{cU:"Ч",cL:"ч",lU:"Č",lL:"č",name:"če",ipa:"t͡ʃ",approx:"твёрдое «ч»"},{cU:"Џ",cL:"џ",lU:"DŽ",lL:"dž",name:"dže",ipa:"d͡ʒ",approx:"«дж»"},{cU:"Ш",cL:"ш",lU:"Š",lL:"š",name:"eš",ipa:"ʃ",approx:"ш"}
 ];
 function alphabetModule(u){
+ S.view="alphabet";
  const useCyr=S.script==="cyr";
  const cards=SERBIAN_ALPHABET.map((x,i)=>{
   const main=useCyr?x.cU+" "+x.cL:x.lU+" "+x.lL;
@@ -903,6 +905,7 @@ function levelsBlock(){
 }
 // ---------- общее ----------
 function paintSeg(){$("#bC").setAttribute("aria-pressed",S.script==="cyr");$("#bL").setAttribute("aria-pressed",S.script==="lat")}
-$("#bC").onclick=()=>{S.script="cyr";save();paintSeg();home()};$("#bL").onclick=()=>{S.script="lat";save();paintSeg();home()};
+const rerenderScriptView=()=>S.view==="alphabet"?alphabetModule(U.find(x=>x.id==="a")):home();
+$("#bC").onclick=()=>{S.script="cyr";save();paintSeg();rerenderScriptView()};$("#bL").onclick=()=>{S.script="lat";save();paintSeg();rerenderScriptView()};
 $("#home").onclick=home;paintSeg();home();
 </script></body></html>
