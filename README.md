@@ -5,7 +5,8 @@ Android language-learning app for Russian speakers learning Serbian.
 ## Current course build
 
 - 45 learning modules across A1 (6), A2 (15), B1 (12), and B2 (12).
-- Every module includes grammar and practice plus two interactive conversations and two comic stories.
+- Every topic module except the alphabet reference includes grammar and practice plus two interactive conversations and two comic stories.
+- The A1 alphabet module is phonetics-only: all 30 Serbian letters in Cyrillic and Latin, uppercase/lowercase forms, audio letter names, IPA transcription, and Russian pronunciation hints. It has no dialogues or comics.
 - The interface uses a playful, gamified design with XP, learning streaks, achievements, progress indicators, and the approved app icon.
 - All four levels are currently open for review. Level transitions do not require exams; exams remain in the code but are temporarily hidden from the interface.
 - Russian explanatory speech is kept separate from Serbian examples; Serbian sentences and dialogues are spoken using the Serbian voice.
